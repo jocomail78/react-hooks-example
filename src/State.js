@@ -2,14 +2,18 @@ import React, { useState } from "react";
 
 const StateComponent = () => {
   const [isGreen, setIsGreen] = useState(true);
+  const [buttonLabel, setButtonLabel] = useState("This");
 
   return (
-    <h1
+    <button
       onClick={() => setIsGreen(!isGreen)}
+      onMouseEnter={() =>
+        setButtonLabel(buttonLabel === "This" ? "That" : "This")
+      }
       style={{ color: isGreen ? "limegreen" : "crimson" }}
     >
-      useState Example
-    </h1>
+      useState Example {buttonLabel}
+    </button>
   );
 };
 

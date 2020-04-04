@@ -6,7 +6,11 @@ const RefComponent = () => {
 
   function incrementAndDelayLogging() {
     setStateNumber(stateNumber + 1);
-    numRef.current++;
+    console.log(numRef);
+    numRef.current = numRef.current + 10;
+    console.log(numRef);
+    //The stateNumber variable at this point is whatever it was when the incrementAndDelayLogging function was called.
+    //Even if I'm changing it in the function, it will have the initial value of it.
     setTimeout(
       () => alert(`state: ${stateNumber} | ref: ${numRef.current}`),
       1000

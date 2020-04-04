@@ -1,5 +1,7 @@
 import React, { useState, useContext, createContext } from "react";
+import UserContext from "./ContextObj";
 
+/*
 const UserContext = createContext([
   {
     firstName: "Bob",
@@ -9,6 +11,7 @@ const UserContext = createContext([
   },
   obj => obj
 ]);
+*/
 
 const LevelFive = () => {
   const [user, setUser] = useContext(UserContext);
@@ -53,7 +56,7 @@ const ContextComponent = () => {
     firstName: "James",
     lastName: "Jameson",
     suffix: 1,
-    email: "jamesjameson@example.com"
+    email: "jamesjameson@example.com",
   });
 
   return (

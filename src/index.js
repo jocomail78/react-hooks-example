@@ -9,6 +9,7 @@ import Memo from "./Memo";
 import Callback from "./Callback";
 import LayoutEffect from "./LayoutEffect";
 import ImperativeHandle from "./ImperativeHandle";
+import Parent from "./Parent";
 
 import "./styles.css";
 
@@ -16,6 +17,8 @@ function App() {
   return (
     <div className="App">
       <State />
+      <hr />
+      <Parent />
       <hr />
       <Effect />
       <hr />
