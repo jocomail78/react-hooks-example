@@ -1,10 +1,11 @@
 import React, { useReducer } from "react";
 
 // fancy logic to make sure the number is between 0 and 255
-const limitRGB = num => (num < 0 ? 0 : num > 255 ? 255 : num);
+const limitRGB = (num) => (num < 0 ? 0 : num > 255 ? 255 : num);
 
 const step = 50;
 
+//Reducer is a fancy function which allows to track multiple states combined in one single function
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_R":
@@ -25,25 +26,50 @@ const reducer = (state, action) => {
 };
 
 const ReducerComponent = () => {
+  //returns the object state, and the dispatch function through which it can be accessed
   const [{ r, g, b }, dispatch] = useReducer(reducer, { r: 0, g: 0, b: 0 });
 
   return (
     <div>
       <h1 style={{ color: `rgb(${r}, ${g}, ${b})` }}>useReducer Example</h1>
       <div>
-        <span>r</span>
-        <button onClick={() => dispatch({ type: "INCREMENT_R" })}>➕</button>
-        <button onClick={() => dispatch({ type: "DECREMENT_R" })}>➖</button>
+        <span>r {r}</span>
+        <button onClick={() => dispatch({ type: "INCREMENT_R" })}>
+          <span role="img" aria-label="plus">
+            ➕
+          </span>
+        </button>
+        <button onClick={() => dispatch({ type: "DECREMENT_R" })}>
+          <span role="img" aria-label="minus">
+            ➖
+          </span>
+        </button>
       </div>
       <div>
-        <span>g</span>
-        <button onClick={() => dispatch({ type: "INCREMENT_G" })}>➕</button>
-        <button onClick={() => dispatch({ type: "DECREMENT_G" })}>➖</button>
+        <span>g {g}</span>
+        <button onClick={() => dispatch({ type: "INCREMENT_G" })}>
+          <span role="img" aria-label="plus">
+            ➕
+          </span>
+        </button>
+        <button onClick={() => dispatch({ type: "DECREMENT_G" })}>
+          <span role="img" aria-label="minus">
+            ➖
+          </span>
+        </button>
       </div>
       <div>
-        <span>b</span>
-        <button onClick={() => dispatch({ type: "INCREMENT_B" })}>➕</button>
-        <button onClick={() => dispatch({ type: "DECREMENT_B" })}>➖</button>
+        <span>b {b}</span>
+        <button onClick={() => dispatch({ type: "INCREMENT_B" })}>
+          <span role="img" aria-label="plus">
+            ➕
+          </span>
+        </button>
+        <button onClick={() => dispatch({ type: "DECREMENT_B" })}>
+          <span role="img" aria-label="minus">
+            ➖
+          </span>
+        </button>
       </div>
     </div>
   );

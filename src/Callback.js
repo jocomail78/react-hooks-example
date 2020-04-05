@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useCallback, memo } from "react";
 
+//memo => function caching like something.
+//means: as long a compute and count doesn't change, please don't re-render it
+
 const ExpensiveComputationComponent = memo(({ compute, count }) => {
   return (
     <div>
@@ -17,7 +20,7 @@ const CallbackComponent = () => {
     return () => clearTimeout(timer);
   });
 
-  const fibonacci = n => {
+  const fibonacci = (n) => {
     if (n <= 1) {
       return 1;
     }
@@ -32,7 +35,8 @@ const CallbackComponent = () => {
         current count: {count}
       </button>
       <ExpensiveComputationComponent
-        compute={useCallback(fibonacci, [])}
+        compute={useCallback(fibonacci, [])} //this means its the same fibonacci function and nothing has changed.
+        //compute={fibonacci} //This would work as well, but this would rerun the fibonacci function every time the component gets re-rendered
         count={count}
       />
     </div>

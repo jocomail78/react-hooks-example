@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 const RefComponent = () => {
   const [stateNumber, setStateNumber] = useState(0);
   const numRef = useRef(0);
+  // useRef can be anything, like a timeout function variable, a dom element, basically anything.
+  // But it cannot be extended, so the only prop available is the .current
 
   function incrementAndDelayLogging() {
     setStateNumber(stateNumber + 1);
